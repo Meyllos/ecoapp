@@ -20,7 +20,7 @@ const Posts = ({navigation, posts, setPage, page}) => {
           key={key}
           style={styles.postContainer}
           onPress={() =>
-            navigation.navigate('Post', {
+            navigation.navigate('SinglePost', {
               postId: post.id,
             })
           }>

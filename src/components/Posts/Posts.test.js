@@ -19,6 +19,12 @@ describe('<Posts />', () => {
     touchables.forEach(
       touchable => touchable.props().onPress && touchable.props().onPress(),
     );
+    touchables.forEach(
+      touchable =>
+        touchable.props().children &&
+        touchable.props().children.props &&
+        touchable.props().children.props.onPress(),
+    );
     expect(wrapper).toHaveLength(1);
   });
 });
