@@ -1,3 +1,4 @@
 import posts from './initial-states/posts';
+import categories from './initial-states/categories';
 
-export default {posts};
+export default {posts, categories};

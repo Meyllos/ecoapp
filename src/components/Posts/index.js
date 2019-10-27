@@ -34,28 +34,30 @@ const Posts = ({navigation, posts, setPage, page}) => {
           />
         </TouchableOpacity>
       ))}
-      <View style={styles.paginationContainer}>
-        <TouchableOpacity>
-          <Button
-            onPress={() => setPage(page > 1 ? page - 1 : page)}
-            buttonStyle={
-              page === 1 ? styles.paginationBtnDisabled : styles.paginationBtn
-            }
-            icon={
-              <Icon iconStyle={styles.paginationIcon} name="chevron-left" />
-            }
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Button
-            onPress={() => setPage(page + 1)}
-            buttonStyle={styles.paginationBtn}
-            icon={
-              <Icon iconStyle={styles.paginationIcon} name="chevron-right" />
-            }
-          />
-        </TouchableOpacity>
-      </View>
+      {posts.length >= 10 ? (
+        <View style={styles.paginationContainer}>
+          <TouchableOpacity>
+            <Button
+              onPress={() => setPage(page > 1 ? page - 1 : page)}
+              buttonStyle={
+                page === 1 ? styles.paginationBtnDisabled : styles.paginationBtn
+              }
+              icon={
+                <Icon iconStyle={styles.paginationIcon} name="chevron-left" />
+              }
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Button
+              onPress={() => setPage(page + 1)}
+              buttonStyle={styles.paginationBtn}
+              icon={
+                <Icon iconStyle={styles.paginationIcon} name="chevron-right" />
+              }
+            />
+          </TouchableOpacity>
+        </View>
+      ) : null}
     </ScrollView>
   );
 };
