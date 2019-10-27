@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from '../../config/enzymeConfig';
 import '../../__mocks__/react-navigation';
+import '../../__mocks__/react-native-share';
 import posts from '../../__mocks__/posts';
 import SinglePost from '.';
 
