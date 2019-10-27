@@ -2,10 +2,6 @@ import {StyleSheet} from 'react-native';
 import screenDimensions from '../../helpers/screenDimensions';
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-  },
   postContainer: {
     flex: 1,
     flexDirection: 'row',

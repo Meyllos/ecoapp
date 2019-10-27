@@ -7,7 +7,7 @@ import styles from './styles';
 const Home = ({navigation, loading, posts, setPage, page}) => {
   return (
     <ScrollView>
-      <Text style={styles.title}>Actualité</Text>
+      <Text style={styles.screenTitle}>Actualité</Text>
       {loading ? (
         <ActivityIndicator size={60} />
       ) : (

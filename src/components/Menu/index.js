@@ -6,8 +6,8 @@ import styles from './styles';
 
 const menus = [
   {title: 'Accueil', icon: 'home'},
-  {title: 'Signets', icon: 'bookmark'},
   {title: 'Categories', icon: 'list'},
+  {title: 'Signets', icon: 'bookmark'},
 ];
 
 const renderButton = (title, routeName, icon, showScreen) => (

@@ -18,7 +18,7 @@ export default (state = initialState, {type, payload}) => {
     case GET_POSTS:
       return {
         ...state,
-        allPosts: payload,
+        allPosts: Array.isArray(payload) ? payload : [],
         loading: false,
       };
     // one post

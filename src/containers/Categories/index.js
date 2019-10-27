@@ -1,16 +1,18 @@
-import React, {Component} from 'react';
-import {View} from 'react-native';
+import React, {useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import {withNavigation} from 'react-navigation';
 import Categories from '../../components/Categories';
+import {getCategories} from '../../redux/actions/categories';
 
-export class CategoriesContainer extends Component {
-  render() {
-    return (
-      <View>
-        <Categories />
-      </View>
-    );
-  }
-}
+export const CategoriesContainer = () => {
+  const dispatch = useDispatch();
+  const {allCategories, loading} = useSelector(({categories}) => categories);
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
+
+  return <Categories loading={loading} categories={allCategories} />;
+};
 
 export default withNavigation(CategoriesContainer);
