@@ -21,7 +21,10 @@ const apiMiddleware = ({dispatch, getState}) => next => async ({
     });
 
     if (Platform.OS === 'android') {
-      data = data.replace(/\r?\n/g, '').replace(/[\u0080-\uFFFF]/g, '');
+      data = data
+        .replace(/\r?\n/g, '')
+        .replace(/[\u0080-\uFFFF]/g, '')
+        .replace(/&#8217;/g, "'");
     }
 
     dispatch({type: payload.onSuccess, payload: JSON.parse(data)});

@@ -8,59 +8,51 @@ import styles from './styles';
 const HeaderComponent = ({navigation}) => {
   const [isMenuVisible, showMenu] = useState(false);
   return (
-    <View>
-      <Header
-        placement="right"
-        leftComponent={
-          <TouchableOpacity onPress={() => navigation.navigate('Accueil')}>
-            <Image source={logo} style={styles.logo} />
-          </TouchableOpacity>
-        }
-        centerComponent={
-          <View style={styles.centerComponent}>
-            <TouchableOpacity>
-              <Button
-                titleStyle={styles.btnTitleStyle}
-                onPress={() => Alert.alert('search')}
-                icon={
-                  <Icon
-                    iconStyle={styles.centerComponentBtnIcon}
-                    name="search"
-                  />
-                }
-              />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Button
-                titleStyle={styles.btnTitleStyle}
-                onPress={() => showMenu(true)}
-                icon={
-                  <Icon
-                    iconStyle={styles.centerComponentBtnIcon}
-                    name="more-vert"
-                  />
-                }
-              />
-            </TouchableOpacity>
-          </View>
-        }
-        rightComponent={
-          <Modal
-            animationType={'none'}
-            transparent={true}
-            visible={isMenuVisible}
-            onRequestClose={() => {
-              Alert.alert('Modal has been closed.');
-            }}>
-            <TouchableOpacity
-              style={styles.rightComponentModal}
-              onPress={() => showMenu(false)}
+    <Header
+      placement="right"
+      leftComponent={
+        <TouchableOpacity onPress={() => navigation.navigate('Accueil')}>
+          <Image source={logo} style={styles.logo} />
+        </TouchableOpacity>
+      }
+      centerComponent={
+        <View style={styles.centerComponent}>
+          <TouchableOpacity>
+            <Button
+              titleStyle={styles.btnTitleStyle}
+              onPress={() => Alert.alert('search')}
+              icon={
+                <Icon iconStyle={styles.centerComponentBtnIcon} name="search" />
+              }
             />
-            <Menu showMenu={showMenu} />
-          </Modal>
-        }
-      />
-    </View>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Button
+              titleStyle={styles.btnTitleStyle}
+              onPress={() => showMenu(true)}
+              icon={
+                <Icon
+                  iconStyle={styles.centerComponentBtnIcon}
+                  name="more-vert"
+                />
+              }
+            />
+          </TouchableOpacity>
+        </View>
+      }
+      rightComponent={
+        <Modal
+          animationType={'none'}
+          transparent={true}
+          visible={isMenuVisible}>
+          <TouchableOpacity
+            style={styles.rightComponentModal}
+            onPress={() => showMenu(false)}
+          />
+          <Menu showMenu={showMenu} />
+        </Modal>
+      }
+    />
   );
 };
 
