@@ -11,6 +11,7 @@ import {Button, Icon} from 'react-native-elements';
 import {withNavigation} from 'react-navigation';
 import AutoHeightWebView from '../AutoHeightWebView';
 import styles from './styles';
+import {sharePost} from '../../helpers/sharePost';
 
 const SinglePost = ({post, loading}) => {
   return loading ? (
@@ -35,6 +36,12 @@ const SinglePost = ({post, loading}) => {
       <View style={styles.bottomButtonsGroupContainer}>
         <TouchableOpacity>
           <Button
+            onPress={() =>
+              sharePost({
+                url: post.link,
+                title: post.title ? post.title.rendered : '',
+              })
+            }
             buttonStyle={styles.bottomButton}
             icon={<Icon iconStyle={styles.paginationIcon} name="share" />}
           />
