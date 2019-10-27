@@ -1,22 +1,21 @@
 import React from 'react';
 import {shallow} from '../../config/enzymeConfig';
 import '../../__mocks__/react-navigation';
-import posts from '../../__mocks__/posts';
-import Posts from '.';
+import SearchPost from '.';
 
 const props = {
-  navigation: {navigate: jest.fn()},
-  posts,
-  setPage: jest.fn(),
-  page: 1,
-  onPostPress: jest.fn(),
+  isSearchBarVisible: true,
+  setSearchBarVisible: jest.fn(),
+  loading: false,
+  search: 'query',
+  setSearch: jest.fn(),
+  posts: [],
 };
 
-describe('<Posts />', () => {
+describe('<SearchPost />', () => {
   test('should render without crashing', () => {
-    const wrapper = shallow(<Posts {...props} />);
+    const wrapper = shallow(<SearchPost {...props} />);
     const touchables = wrapper.find('TouchableOpacity');
-
     touchables.forEach(
       touchable => touchable.props().onPress && touchable.props().onPress(),
     );

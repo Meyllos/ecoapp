@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {View, Image, TouchableOpacity, Alert, Modal} from 'react-native';
+import {View, Image, TouchableOpacity, Modal} from 'react-native';
 import {Header, Icon, Button} from 'react-native-elements';
 import Menu from '../Menu';
+import SearchPost from '../../containers/SearchPost';
 import logo from '../../assets/images/ecoapp.png';
 import styles from './styles';
 
@@ -17,15 +18,7 @@ const HeaderComponent = ({navigation}) => {
       }
       centerComponent={
         <View style={styles.centerComponent}>
-          <TouchableOpacity>
-            <Button
-              titleStyle={styles.btnTitleStyle}
-              onPress={() => Alert.alert('search')}
-              icon={
-                <Icon iconStyle={styles.centerComponentBtnIcon} name="search" />
-              }
-            />
-          </TouchableOpacity>
+          <SearchPost />
           <TouchableOpacity>
             <Button
               titleStyle={styles.btnTitleStyle}
