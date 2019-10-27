@@ -12,18 +12,26 @@ import {Icon, Button} from 'react-native-elements';
 import {withNavigation} from 'react-navigation';
 import styles from './styles';
 
-const Posts = ({navigation, posts, setPage, page}) => {
+const Posts = ({
+  navigation,
+  posts,
+  setPage,
+  page,
+  onPressPost,
+  showPagination,
+}) => {
   return (
     <ScrollView>
       {posts.map((post, key) => (
         <TouchableOpacity
           key={key}
           style={styles.postContainer}
-          onPress={() =>
+          onPress={() => {
             navigation.navigate('SinglePost', {
               postId: post.id,
-            })
-          }>
+            });
+            onPressPost();
+          }}>
           <Text style={styles.postTitle}>{post.title.rendered}</Text>
           <Image
             source={{
@@ -34,7 +42,7 @@ const Posts = ({navigation, posts, setPage, page}) => {
           />
         </TouchableOpacity>
       ))}
-      {posts.length >= 10 ? (
+      {posts.length >= 10 && showPagination ? (
         <View style={styles.paginationContainer}>
           <TouchableOpacity>
             <Button
@@ -68,6 +76,11 @@ Posts.propTypes = {
   setPage: PropTypes.func,
   page: PropTypes.number,
 };
-Posts.defaultProps = {posts: [], page: 1};
+Posts.defaultProps = {
+  posts: [],
+  showPagination: true,
+  page: 1,
+  onPressPost: () => true,
+};
 
 export default withNavigation(Posts);

@@ -5,6 +5,9 @@ import {
   GET_ONE_POST,
   GET_ONE_POST_START,
   GET_ONE_POST_FAIL,
+  SEARCH_POST,
+  SEARCH_POST_START,
+  SEARCH_POST_FAIL,
 } from '../action-types/posts';
 import apiAction from '../../helpers/apiAction';
 import config from '../../config';
@@ -26,5 +29,15 @@ export const getSinglePost = (postId = 0) => async dispatch =>
       onStart: GET_ONE_POST_START,
       onSuccess: GET_ONE_POST,
       onFailure: GET_ONE_POST_FAIL,
+    }),
+  );
+
+export const searchPost = (params = '') => async dispatch =>
+  dispatch(
+    apiAction({
+      url: `${config.baseUrl}posts${params}`,
+      onStart: SEARCH_POST_START,
+      onSuccess: SEARCH_POST,
+      onFailure: SEARCH_POST_FAIL,
     }),
   );

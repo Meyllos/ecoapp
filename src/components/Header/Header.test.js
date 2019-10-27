@@ -14,7 +14,7 @@ describe('<Header />', () => {
     leftComponent.props.onPress();
 
     centerComponent.props.children.forEach(child => {
-      child.props.children.props.onPress();
+      child.props.children && child.props.children.props.onPress();
     });
     rightComponent.props.children.forEach(child => {
       return child.props.onPress && child.props.onPress();

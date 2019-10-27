@@ -3,6 +3,9 @@ import {
   GET_POSTS_START,
   GET_ONE_POST,
   GET_ONE_POST_START,
+  SEARCH_POST,
+  SEARCH_POST_START,
+  SEARCH_POST_FAIL,
 } from '../action-types/posts';
 import initialState from '../initial-states/posts';
 
@@ -32,6 +35,25 @@ export default (state = initialState, {type, payload}) => {
         ...state,
         singlePost: payload,
         loading: false,
+      };
+    // search post
+    case SEARCH_POST_START:
+      return {
+        ...state,
+        searchPost: {
+          ...state.searchPost,
+          loading: true,
+          results: [],
+        },
+      };
+    case SEARCH_POST:
+      return {
+        ...state,
+        searchPost: {
+          ...state.searchPost,
+          loading: false,
+          results: Array.isArray(payload) ? payload : [],
+        },
       };
     default:
       return state;

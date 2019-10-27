@@ -3,4 +3,9 @@ export default {
   singlePost: {},
   loading: false,
   errors: {},
+  searchPost: {
+    loading: false,
+    results: [],
+    error: {},
+  },
 };
