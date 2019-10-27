@@ -6,7 +6,7 @@ A mobile application that collects information (Pots) on the zoom-eco.net
 
 ## Preview
 
-![ezgif com-resize (1)](https://user-images.githubusercontent.com/44000547/67639533-65cd2880-f8f9-11e9-9948-4b42a6faca8c.gif)
+![ezgif com-resize (2)](https://user-images.githubusercontent.com/44000547/67763505-852a9980-fa50-11e9-83a0-82876f53b5a4.gif)
 
 ## Main technologies used
 
